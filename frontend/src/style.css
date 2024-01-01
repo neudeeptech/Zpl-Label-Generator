@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body{
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+  /* min-height: 100vh;
+  background: #98d4db; */
+   
+}
+
+.dialog {
+ position: fixed;
+ top: 25%;
+ left: 55%;
+ size: small;
+ transform: translate(-50%, -50%);
+ background-color: white;
+ padding: 8px;
+ border: 1px solid #ccc;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ z-index: 1000;
+}
+
+.dialog input[type="file"] {
+  margin-right: 3px; /* Adjust the spacing between file input and button */
+}
+
+.dialog button {
+  padding: 5px 5px; /* Adjust the padding to change button size */
+  size: small;
+}
+.container{
+ display: flex;
+  
+ width: 97%;
+ gap: 4px; 
+ padding: 10px; 
+ max-width: 200%;
+  /* padding-bottom: 1cm; */
+ height:97vh;
+ position: fixed;
+ z-index: 2;
+ flex-direction: column;
+  /* flex-wrap: wrap; */
+ 
+}
+
+section{
+ background: #fff;
+ border-radius: 7px;
+  /* width: 267%; */
+  /* height:95vh; */
+  
+}
+
+.drawing-board{
+  /* flex-direction: row; */
+  /* flex: 100%; */
+  /* padding: 10px 5px 5px; */
+  
+ gap: 3px;
+ display: flex;
+  /* flex-wrap: wrap; */
+ background: #98d4db;
+ height:95vh;
+  
+}
+
+.drawing-board > div:first-child {
+ flex: 2 ; /* Each div will take an equal amount of space */
+ display: flex;
+ flex-direction: column;
+ background-color: white;
+ border-radius: 4px;
+ padding-left: 2px;
+ 
+}
+
+.drawing-board > div:last-child {
+ flex: 9; /* This div will take 100% (twice the width) of the available width */
+ background-color: white;
+ border-radius: 4px;
+}
+
+.drawing-board > div > div {
+ flex: 2; /* This will make each child div take 50% of the height of its parent div */
+ /* Add any additional styling for the child divs here */
+}
+
+.drawing-board canvas{
+ background: transparent;
+}
+
+.tools-board{
+ width: 100%; 
+ padding: 4px 5px ;
+  /* position: fixed; */
+} 
+
+#tab-o{
+ width: 80px; /* Set the width of the input box */
+ height: 20px;
+}
+
+#font{
+  width: 70px; /* Set the width of the input box */
+  height: 20px;
+}
+
+#H-R{
+  width: 50px; /* Set the width of the input box */
+  height: 20px;
+}
+
+.dropbtn {
+ /* background-color: #3498DB; */
+ color: rgb(16, 16, 16);
+ padding: 6px;
+ font-size: 16px;
+ border: none;
+ cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+ background-color: #bad4e6;
+}
+
+.dropdown {
+ position: relative;
+ display: inline-block;
+}
+
+.dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #f1f1f1;
+ min-width: 120px;
+ overflow: auto;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ z-index: 1;
+}
+
+.dropdown-content a {
+ color: black;
+ padding: 6px 10px;
+ text-decoration: none;
+ display: block;
+}
+.dropdown a:hover {background-color: #ddd;}
+.dropdown #fileInput:hover {background-color: #ddd;}
+
+.show {
+ display: block;
+}
+
+.entity-list {
+ position: absolute;
+ top: 95px;
+ left: 80px;
+ background-color: white;
+ 
+ border: 1px solid #ccc;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ padding: 3px;
+ z-index: 1;
+ max-height: 180px;
+ overflow-y:auto;
+}
+
+.entity-list ul {
+ list-style: none;
+ color: black;
+ padding: 0;
+ margin: 0;
+}
+
+.entity-list ul li {
+ /* padding: 4px;
+ cursor: pointer;
+ color: black; */
+ 
+ color: black;
+ padding: 5px 6px;
+ cursor: pointer;
+ text-decoration: none;
+ display: block;
+}
+
+.entity-list ul li:hover {
+ background-color: #f1f1f1;
+}
+
+
+
+.wt-entity-list {
+ position: absolute;
+ top: 95px;
+ left: 130px;
+ background-color: white;
+ 
+ border: 1px solid #ccc;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ padding: 3px;
+ z-index: 1;
+}
+
+.wt-entity-list ul {
+ list-style: none;
+ color: black;
+ padding: 0;
+ margin: 0;
+
+
+}
+
+.wt-entity-list ul li {
+ /* padding: 4px;
+ cursor: pointer;
+ color: black; */
+ 
+ color: black;
+ /* padding: 5px 6px; */
+ cursor: pointer;
+ text-decoration: none;
+ display: block;
+}
+
+.wt-entity-list ul li:hover {
+ background-color: #f1f1f1;
+}
+
+
+.tm-entity-list {
+ position: absolute;
+ top: 95px;
+ left: 180px;
+ background-color: white;
+ 
+ border: 1px solid #ccc;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ padding: 3px;
+ z-index: 1;
+}
+
+.tm-entity-list ul {
+ list-style: none;
+ color: black;
+ padding: 0;
+ margin: 0;
+} 
+
+.tm-entity-list ul li {
+ color: black; 
+ cursor: pointer;
+ text-decoration: none;
+ display: block;
+}
+
+.tm-entity-list ul li:hover {
+ background-color: #f1f1f1;
+}
+
+#canvas {
+ backface-visibility: visible;
+ /* height: 750px;
+ width: 1640px; */
+ border: 2px solid rgb(3, 3, 4);
+}
+
+#label_size{
+ width: 50px; /* Set the width of the input box */
+ height: 20px;
+}
+
+#label_width{
+ width: 60px; /* Set the width of the input box */
+ height: 20px;
+}
+
+#label_height{
+ width: 60px; /* Set the width of the input box */
+ height: 20px;
+}
+
+.qr-code svg{
+  width: 110px;
+  height: 110px;
+}
+
+#barcodeEntity{
+  width: 100px; /* Set the width of the input box */
+  height: 20px;
+}
+
+#qrCodeEntity{
+  width: 100px; /* Set the width of the input box */
+  height: 20px;
+}
+
+#barcodeEntity.value {
+  display: none;
+}
+
+#fontStyleSelect{
+  width: 80px; /* Set the width of the input box */
+  height: 20px;
+}
+
+#fontSizeInput{
+  width: 60px; /* Set the width of the input box */
+  height: 20px;
+}
