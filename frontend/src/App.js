@@ -43,6 +43,7 @@ const App = ({ selectedObject }) => {
   const [selectedUnit, setSelectedUnit] = useState(''); // Default unit is pixels
   const [qrCodeGenerate, setQRCodeGenerate] = useState(" ");
   const [barCodeGenerate, setBarCodeGenerate] = useState(""); //initial value of barcode
+  const [label_data, setLabelData] = useState("");
 
   const line_co_ords=[];
   const rectangle_co_ords = [];
@@ -54,6 +55,7 @@ const App = ({ selectedObject }) => {
   const qr_code_cords = [];
   const font_size = [];
   const fontweight_array=[];
+  
 
 useEffect(() => {
   const canvas = new fabric.Canvas(canvasRef.current, {
@@ -195,9 +197,17 @@ const handleSave = () => {
     })
     .then(response => {
     // Access the 'data' property
-    console.log(" resssssssssssponseeee",response['data'])
-                let file_path = response['data']['file_path']
-                window.open(`http://127.0.0.1:5000/` + file_path); 
+    console.log(" resssssssssssponseeee",response['data']);
+    let response_data = response['data']
+    console.log(" resssssssssssponseeee222222",response_data);
+    console.log(" resssssssssssponseeee label_data",response_data.label_data);
+    setLabelData(response_data.label_data);
+    console.log("Label Data resssssssssssponseeee:", label_data);
+    if(response['status']==200){
+      alert("Label format saved successfully!")
+    }
+    downloadZplFile(response_data.label_data);
+                     
    })
   }
     catch(error){
@@ -211,7 +221,11 @@ const handleSave = () => {
 
   }
   
-  
+  // useEffect(() => {
+  //   // This effect will run whenever label_data changes
+  //   console.log("Label Data in useEffect:", label_data);
+  //   downloadZplFile(label_data)
+  // }, [label_data]); 
 
   
 const drawLine = () => {
@@ -865,6 +879,35 @@ const handleWidthChange = (e) => {
         });
     };
 
+   const downloadZplFile = (label_data) => {
+      // Replace this with the content you receive from the backend
+      setLabelData(label_data);
+      console.log("label,data===============", label_data);
+       // Check if label_data is not empty before triggering the download
+      if (label_data) {
+      // Create a Blob with the content
+      const blob = new Blob([label_data], { type: 'text/plain; charset=utf-8' });
+  
+      // Create a download link
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      
+      // Set the filename
+      link.download = 'label.txt';
+  
+      // Append the link to the document
+      document.body.appendChild(link);
+  
+      // Trigger the download
+      link.click();
+  
+      // Remove the link from the document
+      document.body.removeChild(link);
+    } else {
+      console.warn("Label data is empty. Generate the label data first.");
+    }
+    };
+
     return (
     <body style={{background: "#98d4db"}}>
     <div className="container" style={{background: "#98d4db"}} >
@@ -901,12 +944,15 @@ const handleWidthChange = (e) => {
           {/* <label class="title">Save File</label> */}
           <img width="24" height="24" padding="1" src={external_save_file_web_flaticons_flat_flat_icons} alt="external-save-file-web-flaticons-flat-flat-icons" 
             onClick={handleSave}
-            title="Click to Save as Image"/>&emsp;
+            title="Click to Save The Label and generate the ZPL text file."/>&emsp;
         </div>
         
         {/* <div className="row shape" style={{ position: "fixed", paddingTop: "1.2cm" }}> */}
         <div style={{height:"1.5cm"}}>
-        <img width="24" height="27" src={external_printer_school}/>&emsp;&nbsp;
+        <img width="24" height="27" src={external_printer_school} alt="printer-img" 
+        // onClick={downloadZplFile}
+        // title="Click to generate the Label-zpl.txt file"
+        />&emsp;&nbsp;
         
           <img
             width="28"
