@@ -1,0 +1,1 @@
+^XA,^AN,24^FO50,50^FDtext^FS,,^XZ

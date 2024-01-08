@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify , send_file
 import sqlite3
 from flask_cors import CORS
 import numpy as np
@@ -18,8 +18,6 @@ MEDIA_FOLDER = "/media"
 
 # if not os.path.exists(MEDIA_FOLDER):
 #     os.makedirs(MEDIA_FOLDER)
-
-
 # MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_FOLDER)
 
 MEDIA_URL = "/media/"
@@ -207,13 +205,19 @@ def generate_zpl():
     print(result_string)  
     
     ts = datetime.now().strftime("%Y%m%d%H%M%S")
-    fname = f"{MEDIA_FOLDER}/Label_{ts}.zpl"
-    
+    #fname = f"{MEDIA_FOLDER}/Label_{ts}.zpl"
+    fname = "label.zpl"
     f = open(fname, "w")
     f.write(result_string)
     f.close()
-        
-    return{"success": True, "file_path": fname,"label_data":result_string}
+    file_link = f"http://127.0.0.1:5000/download_file?file_path={fname}"    
+    return{"success": True, "file_link": file_link,"label_data":result_string}
+
+@app.route('/download_file', methods=['GET'])
+def download_file():
+    file_path = request.args.get('file_path')
+
+    return send_file(file_path, as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=False, host="0.0.0.0")

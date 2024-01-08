@@ -709,28 +709,28 @@ const labelSize = () => {
   if (selectedValue === "mm") {
     const widthInPixels = selectedWidth / 0.264;
     const heightInPixels = selectedHeight / 0.264;
-    if(selectedWidth > 210 || selectedHeight >110){
-      alert("width and height must be less than 210 mm and 110 mm respectively");
-      return
-    }
+    // if(selectedWidth > 210 || selectedHeight >110){
+    //   alert("width and height must be less than 210 mm and 110 mm respectively");
+    //   return
+    // }
     canvas.setWidth(widthInPixels);
     canvas.setHeight(heightInPixels);
   } else if (selectedValue === "inch") {
     const widthInPixels = selectedWidth / 0.010416667;
     const heightInPixels = selectedHeight / 0.010416667;
-    if(selectedWidth > 8 || selectedHeight >4){
-      alert("width and height must be less than 8 inch and 4 inch respectively");
-      return
-    }
+    // if(selectedWidth > 8 || selectedHeight >4){
+    //   alert("width and height must be less than 8 inch and 4 inch respectively");
+    //   return
+    // }
     canvas.setWidth(widthInPixels);
     canvas.setHeight(heightInPixels);
   } else if (selectedValue === "cm") {
     const widthInPixels = selectedWidth / 0.026458333;
     const heightInPixels = selectedHeight / 0.026458333;
-    if(selectedWidth > 21 || selectedHeight >11){
-      alert("width and height must be less than 21 cm and 11 cm respectively");
-      return
-    }
+    // if(selectedWidth > 21 || selectedHeight >11){
+    //   alert("width and height must be less than 21 cm and 11 cm respectively");
+    //   return
+    // }
     canvas.setWidth(widthInPixels);
     canvas.setHeight(heightInPixels);
   } else if (selectedValue === "Select unit") {
@@ -776,27 +776,27 @@ const handleWidthChange = (e) => {
   const { canvas } = window;
   if (selectedValue === "mm") {
     const widthInPixels = newWidth / 0.264;
-    if(newWidth > 210 ){
-      alert("width and height must be less than 210 mm ");
-      return
-    }
+    // if(newWidth > 210 ){
+    //   alert("width and height must be less than 210 mm ");
+    //   return
+    // }
     console.log("***newWidth*",newWidth);
     console.log("***widthInPixels*",widthInPixels);
     canvas.setWidth(widthInPixels);
     
   } else if (selectedValue === "inch") {
     const widthInPixels = newWidth / 0.010416667;
-    if(newWidth > 8 ){
-      alert("width and height must be less than 8 inch ");
-      return
-    }
+    // if(newWidth > 8 ){
+    //   alert("width and height must be less than 8 inch ");
+    //   return
+    // }
     canvas.setWidth(widthInPixels);
   } else if (selectedValue === "cm") {
     const widthInPixels = newWidth / 0.026458333;
-    if(newWidth > 21 ){
-      alert("width and height must be less than 21 cm ");
-      return
-    }
+    // if(newWidth > 21 ){
+    //   alert("width and height must be less than 21 cm ");
+    //   return
+    // }
     canvas.setWidth(widthInPixels);
   } else if (selectedValue === "Select unit") {
     // Handle the default case if needed
@@ -954,7 +954,7 @@ const handleWidthChange = (e) => {
         // title="Click to generate the Label-zpl.txt file"
         />&emsp;&nbsp;
         
-          <img
+       {/*<img
             width="28"
             height="27"
             src={databse_export}
@@ -962,7 +962,7 @@ const handleWidthChange = (e) => {
             id="handleDBImage"
             onClick={handleDBImageClick}
             style={{ cursor: 'pointer' }}
-          />&emsp;&nbsp;
+          />&emsp;&nbsp; */}   
           
           <div className={`entity-list ${isListOpen ? 'open' :''}`} >
               
