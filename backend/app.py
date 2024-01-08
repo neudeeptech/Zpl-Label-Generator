@@ -213,6 +213,22 @@ def generate_zpl():
     file_link = f"http://127.0.0.1:5000/download_file?file_path={fname}"    
     return{"success": True, "file_link": file_link,"label_data":result_string}
 
+@app.route('/upload_image', methods=['POST'])
+def upload_image():
+    print("--------------------------data upload------------------------------------------")    
+    UPLOAD_FOLDER = './static/files'
+    app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
+    uploaded_file = request.files['file']
+    print(uploaded_file)
+    if uploaded_file.filename != '':
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file.filename)
+        # set the file path
+        print(file_path)
+        uploaded_file.save(file_path)
+        return{"success":True,"filepath":file_path}
+    else:
+         return{"success":False}
+     
 @app.route('/download_file', methods=['GET'])
 def download_file():
     file_path = request.args.get('file_path')
