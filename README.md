@@ -1,6 +1,6 @@
 # Label Generator Application
 
-(![Alt text](image.png))
+![Alt text](image.png)
 
 ## Overview
 
