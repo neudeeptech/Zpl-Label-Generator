@@ -1,7 +1,7 @@
-import React, { useEffect, useLayoutEffect, useRef, useState, useHistory } from "react";
+import React, { useEffect,  useRef, useState } from "react";
 import axios from 'axios';
 import "./style.css";
-import { Link } from "react-router-dom";
+
 import { fabric } from 'fabric';
 import JsBarcode from 'jsbarcode';
 import QRCode from 'qrcode';
@@ -10,14 +10,15 @@ import BoldImage from './images/bold.png';
 import database_daily_export from './images/database_daily_export.png';
 import external_printer_school from './images/external_printer_school.png';
 import external_save_file_web_flaticons_flat_flat_icons from './images/external_save_file_web_flaticons_flat_flat_icons.png';
-import LineImage from './images/line.png';
+
 import PictureImage from './images/picture.png';
 import rectangle_stroked from './images/rectangle_stroked.png';
 import text_box from './images/text_box.png';
 import weight_kg from './images/weight_kg.png';
-import databse_export from './images/database_export.png';
+
 import horizontal_line from './images/horizontal-line.png';
 import vertical_line from './images/icons8-vertical-line-48.png';
+import './App.css';
 
 const App = ({ selectedObject }) => {
   const [canvasObjects, setCanvasObjects] = useState([]);
@@ -815,8 +816,15 @@ const handleWidthChange = (e) => {
     };
 
     const handleBarcodeInputChange = (event) => {
-      setBarCodeGenerate((prevValue) => event.target.value);
-      createBarcode();
+      const inputValue = event.target.value.trim();
+      // setBarCodeGenerate((prevValue) => event.target.value);
+      // if(event.target.value!==' '&& event.target.value!=='')
+      // createBarcode();
+      setBarCodeGenerate((prevValue) => inputValue);
+      if (inputValue !== '') {
+        createBarcode();
+      }
+      
     };
 
     const createBarcode = () => {
@@ -828,6 +836,7 @@ const handleWidthChange = (e) => {
         }
       });
 
+      try{
       // Generate the barcode using JsBarcode
       const barcodeCanvas = document.createElement('canvas');
       // JsBarcode(barcodeCanvas, barCodeGenerate);
@@ -846,6 +855,10 @@ const handleWidthChange = (e) => {
 
       canvas.add(barcodeImage);
       canvas.renderAll();
+    } catch (error) {
+      console.error('Error generating barcode:', error.message);
+      // Handle the error, e.g., display a message to the user
+    }
     };
 
     
@@ -954,7 +967,7 @@ const handleWidthChange = (e) => {
         // title="Click to generate the Label-zpl.txt file"
         />&emsp;&nbsp;
         
-       {/*<img
+       {/* <img
             width="28"
             height="27"
             src={databse_export}
@@ -962,8 +975,8 @@ const handleWidthChange = (e) => {
             id="handleDBImage"
             onClick={handleDBImageClick}
             style={{ cursor: 'pointer' }}
-          />&emsp;&nbsp; */}   
-          
+          />&emsp;&nbsp;   
+          */}
           <div className={`entity-list ${isListOpen ? 'open' :''}`} >
               
               {entities.length> 0 && (
@@ -977,7 +990,7 @@ const handleWidthChange = (e) => {
                   )
                   }
               
-            </div>
+            </div> 
          
             
         <img width="28" height="29" src={weight_kg} alt="weight-kg" onClick={handleWeightDBImageClick}
