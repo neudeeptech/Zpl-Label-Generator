@@ -1,6 +1,6 @@
 # Label Generator Application
 
-![Label Generator Logo](![Alt text](image.png))
+(![Alt text](image.png))
 
 ## Overview
 
