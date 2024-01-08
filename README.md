@@ -11,6 +11,7 @@ The Label Generator Application is a zpl launguge label designing application . 
 - **Feature 1:** You can add text labels.
 - **Feature 2:** Use diffrenet shapes,lines.
 - **Feature 3:** save your label as json and zpl file
+- **Feature 3:** can add BARCode , QRcode , logo 
 
 ## Screenshots
 
