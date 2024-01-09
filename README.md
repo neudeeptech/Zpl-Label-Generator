@@ -64,6 +64,9 @@ npm run
 # start backend server
 ``` 
 cd backend
+sudo apt-get install python3-dev
+sudo apt install python3-venv
+python3 -m venv venv
 pip3 install -r requirements.py 
 python3 app.py
 ```
