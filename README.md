@@ -4,7 +4,7 @@
 
 ## Overview
 
-The Label Generator Application is a zpl launguge label designing application . It allows users to design there label format on canvas and it converts it to ZPL printer language code. This project was developed with [javascript/reactjs] and python/flask.
+The Label Generator Application is a zpl launguge label designing application . It allows users to design their label format/drawing on canvas and it converts it to ZPL printer language code. This project was developed with [javascript/reactjs(fabricjs)] and python/flask.
 
 ## Features
 
@@ -44,6 +44,13 @@ The Label Generator Application is a zpl launguge label designing application . 
 >))
 ![Screenshot 13](![Alt text](<![SaveIcon_download_zpl_content](https://github.com/neudeeptech/Zpl-Label-Generator/assets/105447099/8125910e-29d4-4b87-a004-cb1ce163162b)
 >))
+![Screenshot 14](![Alt text](<![download_zpl_txt_alert](https://github.com/neudeeptech/Zpl-Label-Generator/assets/105447099/b5bfcb76-f582-4011-b519-ad62b87afe20)
+>))
+![Screenshot 15](![Alt text](<![label txt_dwnld](https://github.com/neudeeptech/Zpl-Label-Generator/assets/105447099/a3042dbf-060d-400c-9eb4-ef3c73ee6087)
+>))
+![Screenshot 15](![Alt text](<!![zpl_text_file_content](https://github.com/neudeeptech/Zpl-Label-Generator/assets/105447099/1412414c-92e2-45b2-8c18-0b496d0e74d3)
+
+>))
 
 
 
@@ -73,15 +80,15 @@ cd backend
 sudo apt-get install python3-dev
 sudo apt install python3-venv
 python3 -m venv venv
-pip3 install -r requirements.py 
+pip3 install -r requirements.txt 
 python3 app.py
 ```
-# if dont want to use virtual env for python backend:
+# if dont want to use virtual env for python backend server:
 ```
 cd backend
-pip3 install -r requirements.py 
+pip3 install -r requirements.txt
 python3 app.py
-
+```
 ## License
 This project is licensed under the [GPL-3.0 license] - see the LICENSE.md file for details.
 
