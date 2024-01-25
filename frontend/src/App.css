@@ -50,8 +50,8 @@ body{
 
 .dialog {
  position: fixed;
- top: 25%;
- left: 55%;
+ top: 16%;
+ left: 39%;
  size: small;
  transform: translate(-50%, -50%);
  background-color: white;
@@ -322,6 +322,10 @@ section{
  height: 20px;
 }
 
+#label-unit{
+ width: 100px; 
+ height: 25px;
+}
 .qr-code svg{
   width: 110px;
   height: 110px;
@@ -343,7 +347,7 @@ section{
 
 #fontStyleSelect{
   width: 80px; /* Set the width of the input box */
-  height: 20px;
+  height: 25px;
 }
 
 #fontSizeInput{

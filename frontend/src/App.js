@@ -17,7 +17,7 @@ import text_box from './images/text_box.png';
 import weight_kg from './images/weight_kg.png';
 
 import horizontal_line from './images/horizontal-line.png';
-import vertical_line from './images/icons8-vertical-line-48.png';
+// import vertical_line from './images/icons8-vertical-line-48.png';
 import './App.css';
 
 const App = ({ selectedObject }) => {
@@ -255,31 +255,31 @@ const drawLine = () => {
     canvas.requestRenderAll();
 };
 
-const drawVerticalLine = () => {
-  console.log("*****inside drawVerticalLine******");
-  const { canvas } = window;
+// const drawVerticalLine = () => {
+//   console.log("*****inside drawVerticalLine******");
+//   const { canvas } = window;
 
-  let verticalLine = new fabric.Line([100, 50, 100, 150], {
-      stroke: 'black',
-      strokeWidth: 1,
-      selectable: true,
-      prop: "verticalLine"
-  });
+//   let verticalLine = new fabric.Line([100, 50, 100, 150], {
+//       stroke: 'black',
+//       strokeWidth: 1,
+//       selectable: true,
+//       prop: "verticalLine"
+//   });
 
-  verticalLine.setControlsVisibility({
-      mt: true,
-      mb: true,
-      ml: true,
-      mr: true,
-      tr: false,
-      tl: false,
-      br: false,
-      bl: true,
-  });
+//   verticalLine.setControlsVisibility({
+//       mt: true,
+//       mb: true,
+//       ml: true,
+//       mr: true,
+//       tr: false,
+//       tl: false,
+//       br: false,
+//       bl: true,
+//   });
 
-  canvas.add(verticalLine);
-  canvas.requestRenderAll();
-};
+//   canvas.add(verticalLine);
+//   canvas.requestRenderAll();
+// };
 
 
 const drawRectangle = () => {
@@ -1043,7 +1043,7 @@ const handleWidthChange = (e) => {
       </button>
       &emsp;&nbsp;
 
-      <button id="drawLine">
+      {/* <button id="drawLine">
         <img
         width="24"
         height="24"
@@ -1052,7 +1052,7 @@ const handleWidthChange = (e) => {
         onClick={drawVerticalLine} // Optional: handle image click event
       />
       </button>
-      &emsp;&nbsp;
+      &emsp;&nbsp; */}
 
         <button id="drawRect">
         <img 
@@ -1096,7 +1096,7 @@ const handleWidthChange = (e) => {
         <label htmlFor="label-size">Label Template Size : </label>
         
          <input type="number" id="label_width" name="label_width" placeholder="w"min="1" 
-        onChange={handleWidthChange} />x 
+        onChange={handleWidthChange} />&nbsp;x&nbsp;
          <input type="number" id="label_height" name="label_height" placeholder="h"min="1"
         onChange={handleHeightChange} />&nbsp;
      
@@ -1136,7 +1136,7 @@ const handleWidthChange = (e) => {
           /><br/>
         
         {/* <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/add.png" alt="add"  onClick={createBarcode}/>  */}
-        <label>QRcode :  </label>
+        <label>QRcode  :   </label>
             <input
               type="text"
               id="qrCodeEntity"
