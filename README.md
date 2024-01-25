@@ -4,7 +4,7 @@
 
 ## Overview
 
-The Label Generator Application is a zpl launguge label designing application . It allows users to design their label format/drawing on canvas and it converts it to ZPL printer language code. This project was developed with [javascript/reactjs(fabricjs)] and python/flask.
+Welcome to the Label Generator Application, a user-friendly tool designed for crafting Zebra Programming Language (ZPL) labels effortlessly. This innovative application seamlessly blends the versatility of [JavaScript/ReactJS (FabricJS)] with the robustness of Python/Flask to provide a seamless label designing experience with following features:
 
 ## Features
 
