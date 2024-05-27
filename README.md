@@ -75,7 +75,17 @@ npm start
 ```
 
 # start backend server
-``` 
+```
+->WINDOWS
+cd Zpl-Label-Generator
+cd backend
+pip install virtualenv
+python -m venv env
+env\Scripts\activate
+pip3 install -r requirements.txt
+python3 app.py
+
+->Linux Distro 
 cd backend
 sudo apt-get install python3-dev
 sudo apt install python3-venv
